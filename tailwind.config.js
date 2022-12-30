@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -13,6 +15,9 @@ module.exports = {
       'gradient_from': '#00F5A0',
       'gradient_to': '#00D9F5',
       'black': '#000000',
+      'white': colors.white,
+      'yellow': colors.amber,
+      ...colors,
     },
     screens: {
       'md': {'max': '767px'},

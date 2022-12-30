@@ -4,6 +4,10 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
+import Link from "next/link";
+import Navbar from "../components/Navbar";
+import CardList from "../components/portfolioCards/CardList";
+import Card from "../components/portfolioCards/Card";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,21 +39,8 @@ export default function Home({ portfolio }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className=" text-text bg-mainbg">
-        <section className="h-[10vh]">
-        <nav className="pt-6 pl-28 h-[10vh] fixed z-20 bg-mainbg w-full">
-          <ul className="flex">
-            <li className="text-xl px-14">
-              <a href="#">Home</a>
-            </li>
-            <li className="text-xl px-14 fixed right-[16rem] pt-2">
-              <a href="#">Projects</a>
-            </li>
-            <li className="text-xl px-14">
-              <button className="fixed right-20 bg-gradient-to-r from-gradient_from to-gradient_to border-mainbg text-mainbg font-semibold  py-2 px-3 rounded-xl md:mx-auto"><a href="#">Contact</a></button>
-            </li>
-          </ul>
-        </nav>
-        </section>
+        {/* Navbar */}
+        <Navbar />
         <div className="relative text-xl">
           {/* Hero section */}
           <section className="relative h-[90vh]">
@@ -67,9 +58,11 @@ export default function Home({ portfolio }) {
                       Building various complex web applications with Next.js,
                       React.js Tailwind, Django, Django Restframework
                     </p>
-                    <button className="mt-5 bg-gradient-to-r from-gradient_from to-gradient_to border-mainbg text-mainbg font-semibold  py-3 px-5 rounded-lg md:mx-auto">
-                      Contact Me
-                    </button>
+                    <Link href="/contact">
+                      <button className="mt-5 bg-gradient-to-r from-gradient_from to-gradient_to border-mainbg text-mainbg font-semibold  py-3 px-5 rounded-lg md:mx-auto">
+                        Contact Me
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 {/* Hero image */}
@@ -99,29 +92,39 @@ export default function Home({ portfolio }) {
           {/* Project section */}
           <section>
             <h1>My Projects</h1>
-            {portfolio.map((project) => (
-              <div key={project.title}>
-                <a href="{project.link}">
-                  <img
-                    src={urlFor(project.image).url()}
-                    alt={project.title}
-                    width={300}
-                    height={300}
-                  />
-                  <h1>{project.title}</h1>
-                </a>
-                <p>{project.description}</p>
+            <div className="px-4 py-12">
+              <div className="flex flex-wrap -mx-2">
+                {portfolio.map((project) => (
+                  <div className="px-2 w-full sm:w-1/2 lg:w-1/3" key={project.title}>
+                  <div
+                    className="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <img
+                      className="w-full h-64 object-cover"
+                      src={urlFor(project.image).url()}
+                      alt={project.title}
+                    />
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2">
+                        {project.title}
+                      </div>
+                      <p className="text-gray-700 text-base">
+                        {project.description}
+                      </p>
+                    </div>
+                    <div className="px-6 py-4">
+                      <Link
+                        href={project.link}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      >
+                        View Project
+                      </Link>
+                    </div>
+                  </div>
+                  </div>
+                ))}
               </div>
-            ))}
-            {!portfolio[0].length > 0 && (
-              <div>
-                <div>¯\_(ツ)_/¯</div>
-                <p>
-                  Your data will show up here when youve configured everything
-                  correctly
-                </p>
-              </div>
-            )}
+            </div>
           </section>
           {/* Contact section */}
         </div>
