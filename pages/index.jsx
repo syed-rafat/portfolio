@@ -97,12 +97,7 @@ export default function Home({ portfolio }) {
               remote position as a full stack developer.
             </p>
           </section>
-          {/* Tech stack section */}
-
-          <section className="text-center text-2xl">
-            <h1>My Tech Stack</h1>
-            <div></div>
-          </section>
+          
           {/* Project section */}
           <section className="relative m-12">
             <h1 className="text-center text-4xl text-accent">Projects</h1>
@@ -144,6 +139,18 @@ export default function Home({ portfolio }) {
             </div>
           </section>
           {/* Contact section */}
+
+          {/* Tech stack section */}
+
+          <section className="text-center text-2xl">
+            <h1>My Tech Stack</h1>
+            <div className="flex">
+              <img src="/logos_react.svg" alt="tech" className="" />
+              {/* <img src="/vscode-icons_file-type-css.svg" alt="tech" className="w-[100%]" />
+              <img src="/vscode-icons_file-type-html.svg" alt="tech" className="w-[100%]" /> */}
+              <img src="/logos_git-icon.svg" alt="tech" className="w-[7rem]" />
+            </div>
+          </section>
         </div>
       </div>
     </div>
