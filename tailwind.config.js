@@ -20,8 +20,32 @@ module.exports = {
       ...colors,
     },
     screens: {
+      '2xl': {'max': '1535px'},
+      // => @media (-width: 1535px) { ... }
+
+      'xl': {'max': '1279px'},
+      // => @media (max-width: 1279px) { ... }
+
+      'lg': {'max': '1023px'},
+      // => @media (max-width: 1023px) { ... }
+      
       'md': {'max': '767px'},
       'sm': {'max': '639px'},
+
+      'smmin': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'mdmin': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lgmin': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xlmin': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xlmin': '1536px',
+      // => @media (min-width: 1536px) { ... }
     },
     extend: {},
   },

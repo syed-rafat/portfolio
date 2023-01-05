@@ -6,6 +6,7 @@ import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,48 +37,18 @@ export default function Home({ portfolio }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className=" text-text bg-mainbg">
+
         {/* Navbar */}
         <Navbar />
+        
         <div className="relative text-xl">
+
           {/* Hero section */}
-          <section className="relative h-[90vh]">
-            <div className="p-16 m-16 mt-0 ml-2">
-              <div className="flex m-auto flex-row flex-nowrap self-center p-16 pt-52 md:flex-wrap md:p-0 md:m-0">
-                {/* Hero text */}
-                <div className="relative md:order-2">
-                  <div className="w-[70%] md:w-full">
-                    <h2 className="text-3xl text-title font-bold py-3">
-                      Full Stack Web Developer
-                    </h2>
-                    {/* <h1 className="text-7xl font-bold py-3">Syed Rafat</h1> */}
-                    <img src="/name.svg" alt="name" className="w-[100%]" />
-                    <p className="py-3">
-                      Building various complex web applications with Next.js,
-                      React.js Tailwind, Django, Django Restframework
-                    </p>
-                    <Link href="/contact">
-                      <button className="mt-5 bg-gradient-to-r from-gradient_from to-gradient_to border-mainbg text-mainbg font-semibold  py-3 px-5 rounded-lg md:mx-auto">
-                        Contact Me
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-                {/* Hero image */}
-                <div className="relative m-0 p-0 pt-5 xl:ml-24 xl:bottom-34 xl:pt-0 md:order-1">
-                  {/* rounded image */}
-                  <Image
-                    src={"/pro.png"}
-                    alt="profile pic"
-                    width={400}
-                    height={400}
-                    className="rounded-full"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
+
+          <Hero />
+
           {/* About me section */}
-          <section className="h-[36rem] m-12 px-6 py-12">
+          <section className="h-auto m-12 px-6 py-12 sm:m-0 sm:px-0">
             <h1 className="text-4xl text-accent pb-12 text-center">About me</h1>
             <p className=" text-accent py-4 px-4 relative leading-relaxed w-[80%] m-auto shadow text-xl border-l-4 border-gradient_from">
               Hi, my name is Syed Rafat and I am a full stack developer with a
@@ -96,7 +67,10 @@ export default function Home({ portfolio }) {
             </p>
           </section>
 
+          
           {/* Project section */}
+
+
           <section className="relative m-12">
             <h1 className="text-center text-4xl text-accent">Projects</h1>
             <div className="px-4 py-12 transition-all duration-300 text-accent">
@@ -175,9 +149,16 @@ export default function Home({ portfolio }) {
               </div>
             </div>
           </section>
+
+
+
           {/* Contact section */}
 
+
+
           {/* Tech stack section */}
+
+
 
           <section className="text-center text-2xl">
             <h1>My Tech Stack</h1>
