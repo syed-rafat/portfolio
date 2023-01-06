@@ -7,6 +7,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import About from "../components/About";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,76 +37,25 @@ export default function Home({ portfolio }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className=" text-text bg-mainbg">
-
+      <div className="text-text bg-gradient-to-b from-mainbg via-slate-700 to-gray-200">
+      <div className="">
         {/* Navbar */}
         <Navbar />
         
-        <div className="relative text-xl">
+        <div className="relative text-xl font-eurostile">
 
           {/* Hero section */}
 
           <Hero />
-
-          {/* About me section */}
-          <section className="h-auto m-12 px-6 py-12 sm:m-0 sm:px-0">
-            <h1 className="text-4xl text-accent pb-12 text-center">About me</h1>
-            <p className=" text-accent py-4 px-4 relative leading-relaxed w-[80%] m-auto shadow text-xl border-l-4 border-gradient_from">
-              Hi, my name is Syed Rafat and I am a full stack developer with a
-              strong understanding of modern web development technologies. I
-              have experience building complex web applications using Next.js
-              for server-side rendering and optimized performance, React.js for
-              building reusable UI components, and Tailwind for rapid
-              prototyping and styling. On the backend, I have used Django and
-              Django Restframework to build robust APIs and handle database
-              management. I have a strong understanding of RESTful API design
-              and have experience implementing authentication and authorization
-              using JSON Web Tokens. I have also used SQL and PostgreSQL for
-              database management. I have worked with linux system in the cloud
-              and hosted on AWS and Azure. I am currently looking for a
-              full-time remote position as a full stack developer.
-            </p>
-          </section>
-
+          <About />
           
           {/* Project section */}
-
 
           <section className="relative m-12">
             <h1 className="text-center text-4xl text-accent">Projects</h1>
             <div className="px-4 py-12 transition-all duration-300 text-accent">
               <div className="flex flex-wrap -mx-2">
                 {portfolio.map((project) => (
-                  // <div
-                  //   className="px-2 w-full sm:w-1/2 lg:w-1/3 group bg-gray-500"
-                  //   key={project.title}
-                  // >
-                  //   <div className="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-slate-300">
-                  //     <img
-                  //       className="w-full h-64 object-cover"
-                  //       src={urlFor(project.image).url()}
-                  //       alt={project.title}
-                  //     />
-                  //     <div className="px-6 py-4">
-                  //       <div className="font-bold text-xl mb-2">
-                  //         {project.title}
-                  //       </div>
-                  //       {/* Hide description, only show when hovering over card */}
-
-                  //       <p className="text-accent text-base transition-all duration-300 hidden group-hover:inline group-hover:text-accent">
-                  //         {project.description}
-                  //       </p>
-                  //     </div>
-                  //     <div className="px-6 py-4">
-                  //       <Link
-                  //         href={project.link}
-                  //         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  //       >
-                  //         View Project
-                  //       </Link>
-                  //     </div>
-                  //   </div>
-                  // </div>
 
                   <div key={project.title} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
@@ -151,7 +101,6 @@ export default function Home({ portfolio }) {
           </section>
 
 
-
           {/* Contact section */}
 
 
@@ -171,6 +120,7 @@ export default function Home({ portfolio }) {
           </section>
         </div>
       </div>
+      </div>
     </div>
   );
 }
@@ -184,5 +134,6 @@ export async function getStaticProps() {
     props: {
       portfolio,
     },
+    revalidate: 5000,
   };
 }

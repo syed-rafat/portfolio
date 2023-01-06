@@ -14,7 +14,7 @@ export default function Hero() {
                     <h2 className="text-3xl text-title font-bold py-3 sm:text-xl">
                       Full Stack Web Developer
                     </h2>
-                    <img src="/name.svg" alt="name" className="w-[100%]" />
+                    <Image src="/name.svg" alt="name" width={600} height={600} />
                     <p className="py-3 lg:pb-7">
                       Building various complex web applications with Next.js,
                       React.js Tailwind, Django, Django Restframework

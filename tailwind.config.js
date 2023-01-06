@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
+// import '../public/Eurostile.ttf';
 
 module.exports = {
   content: [
@@ -46,6 +47,10 @@ module.exports = {
 
       '2xlmin': '1536px',
       // => @media (min-width: 1536px) { ... }
+    },
+    fontFamily: {
+      'eurostile': ['Eurostile', 'sans-serif'],
+      'mona-sans': ['Mona Sans', 'sans-serif'],
     },
     extend: {},
   },
