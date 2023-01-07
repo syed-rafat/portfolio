@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
 // import { urlFor } from "../pages";
@@ -18,17 +19,17 @@ export function urlFor(source) {
 }
 
 export default function Projects({ portfolio }) {
-    
+
   return (
     <section className="bg-white text-black">
-      <div className="p-[8rem] font-semibold">
+      <div className="p-[8rem] font-semibold lg:p-10">
         <h1 className="text-center text-4xl text-mainbg font-bold font-eurostile">
           Projects
         </h1>
 
         {/* First Project - Oceanlog */}
-        <div className="px-10 flex shadow-xl">
-          <div className="relative w-[60%]">
+        <div className="px-10 flex shadow-xl xl:flex-col sm:px-0">
+          <div className="relative w-[60%] xl:w-[100%]">
             <h1 className="py-10">{portfolio[0].title}</h1>
             <div className="flex flex-col p-5 bg-slate-500 bg-opacity-20">
               {/* first image */}
@@ -53,13 +54,12 @@ export default function Projects({ portfolio }) {
               </div>
             </div>
           </div>
-          <div className="relative w-[40%] p-10">
+          <div className="relative w-[40%] p-10 xl:w-[100%]">
             <p className="text-lg font-thin py-4 font-mona-sans">
               From 2021(November)-Present, i am devoting all my skills to
               develop and maintain this fully scalable oceanography blogging
               website:
             </p>
-            <p>
               <ul className="font-thin font-mona-sans text-lg decoration list-disc">
                 <li> Dynamic routes which are then server-side</li>
                 rendered(SSR).
@@ -90,7 +90,6 @@ export default function Projects({ portfolio }) {
                 </li>
                 <li>Responsive and beautiful design made with tailwind</li>
               </ul>
-            </p>
           </div>
         </div>
       </div>
