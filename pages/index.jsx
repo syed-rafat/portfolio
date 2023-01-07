@@ -8,6 +8,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Footer from "../components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +23,12 @@ let client = createClient({
 
 const builder = imageUrlBuilder(client);
 
-function urlFor(source) {
+export function urlFor(source) {
   return builder.image(source);
 }
 
 export default function Home({ portfolio }) {
+  console.log(portfolio[0]);
   return (
     <div>
       <Head>
@@ -37,89 +39,102 @@ export default function Home({ portfolio }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="text-text bg-gradient-to-b from-mainbg via-slate-700 to-gray-200">
-      <div className="">
+      <div className="text-text">
+        <img
+          src="mountain.png"
+          className="absolute top-0 sm:w-[100vw] w-[100vw] h-[100vh] object-cover overflow-hidden"
+        />
         {/* Navbar */}
         <Navbar />
-        
-        <div className="relative text-xl font-eurostile">
 
+        <div className="relative text-xl font-eurostile">
           {/* Hero section */}
 
           <Hero />
           <About />
-          
+
           {/* Project section */}
 
-          <section className="relative m-12">
-            <h1 className="text-center text-4xl text-accent">Projects</h1>
-            <div className="px-4 py-12 transition-all duration-300 text-accent">
-              <div className="flex flex-wrap -mx-2">
-                {portfolio.map((project) => (
+          <section className="bg-white text-black">
+            <div className="p-[8rem] font-semibold">
+              <h1 className="text-center text-4xl text-mainbg font-bold font-eurostile">
+                Projects
+              </h1>
 
-                  <div key={project.title} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
+              {/* First Project - Oceanlog */}
+              <div className="px-10 flex shadow-xl">
+                <div className="relative w-[60%]">
+                  <h1 className="py-10">{portfolio[0].title}</h1>
+                  <div className="flex flex-col p-5 bg-slate-500 bg-opacity-20">
+                    {/* first image */}
+                    <img
+                      src={urlFor(portfolio[0].image1).url()}
+                      alt={portfolio[0].title}
+                      className="w-[100%] pb-10 hover:absolute hover:overflow-visible hover:w-[50vw] hover:h-[50vh] hover:z-50 hover:-top-10 hover:object-cover hover:object-center hover:transition-all hover:duration-1000"
+                    />
+
+                    {/* div for 2nd and 3rd image */}
+                    <div className="flex flex-row relative w-[100%]">
                       <img
-                        className="rounded-t-lg"
-                        src={urlFor(project.image).url()}
-                        alt={project.title}
+                        src={urlFor(portfolio[0].image2).url()}
+                        alt={portfolio[0].title}
+                        className="w-[50%] hover:absolute hover:overflow-visible hover:w-[50vw] hover:h-[50vh] hover:z-50 hover:-top-10 hover:object-cover hover:object-center hover:transition-all hover:duration-1000]"
                       />
-                    </a>
-                    <div className="p-5">
-                      <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {project.title}
-                        </h5>
-                      </a>
-                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 h-14 overflow-hidden">
-                        {project.description}
-                      </p>
-                      <a
-                        href={project.link} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      >
-                        View Project
-                        <svg
-                          aria-hidden="true"
-                          className="w-4 h-4 ml-2 -mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
+                      <img
+                        src={urlFor(portfolio[0].image3).url()}
+                        alt={portfolio[0].title}
+                        className="w-[50%] hover:absolute hover:overflow-visible hover:w-[50vw] hover:h-[50vh] hover:z-50 hover:-top-10 hover:-right-20 hover:object-cover hover:object-center hover:transition-all hover:duration-1000]"
+                      />
                     </div>
                   </div>
-                ))}
+                </div>
+                <div className="relative w-[40%] p-10">
+                  <p className="text-lg font-thin py-4 font-mona-sans">
+                    From 2021(November)-Present, i am devoting all my skills to
+                    develop and maintain this fully scalable oceanography
+                    blogging website:
+                  </p>
+                    <ul className="font-thin font-mona-sans text-lg decoration list-disc">
+                      <li> Dynamic routes which are then server-side</li>
+                      rendered(SSR).
+                      <li>
+                        {" "}
+                        All data including dynamic routes are served via django
+                        rest api
+                      </li>
+                      <li>
+                        which stores them in a relational database(PostgreSQL).
+                      </li>
+                      <li>
+                        {" "}
+                        Static site generation(SSG) is implemented in case of
+                        non dynamic pages{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        Rich text editor(CkEditor5) with custom image upload to
+                        Cloudinary is implemented and handled by django rest api{" "}
+                      </li>
+                      <li> Global state management done with Zustand.</li>
+                      <li>
+                        Token authentication, fully working login and
+                        registration system
+                      </li>
+                      <li>
+                        Successfully hosted and worked with Azure, AWS Elastic
+                        Beanstalk and Vercel
+                      </li>
+                      <li>
+                        Responsive and beautiful design made with tailwind
+                      </li>
+                    </ul>
+                </div>
               </div>
             </div>
           </section>
-
-
-          {/* Contact section */}
-
-
-
-          {/* Tech stack section */}
-
-
-
-          <section className="text-center text-2xl">
-            <h1>My Tech Stack</h1>
-            <div className="flex">
-              <img src="/logos_react.svg" alt="tech" className="" />
-              {/* <img src="/vscode-icons_file-type-css.svg" alt="tech" className="w-[100%]" />
-              <img src="/vscode-icons_file-type-html.svg" alt="tech" className="w-[100%]" /> */}
-              <img src="/logos_git-icon.svg" alt="tech" className="w-[7rem]" />
-            </div>
-          </section>
+          
+          <Footer />
         </div>
-      </div>
       </div>
     </div>
   );
@@ -127,7 +142,7 @@ export default function Home({ portfolio }) {
 
 export async function getStaticProps() {
   const portfolio = await client.fetch(
-    `*[_type == "portfolio"]{title, description, image, link}`
+    `*[_type == "portfolio"]{title, description, image1, image2, image3, link}`
   );
 
   return {

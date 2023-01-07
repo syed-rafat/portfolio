@@ -10,12 +10,12 @@ export default function Hero() {
                 
                 {/* Hero text */}
                 <div className="relative lg:order-2">
-                  <div className="w-[70%] lg:w-full">
-                    <h2 className="text-3xl text-title font-bold py-3 sm:text-xl">
+                  <div className="w-[70%] lg:w-full smmin:bg-blueGray-900 smmin:rounded-3xl smmin:bg-opacity-20 p-2">
+                    <h2 className="text-3xl text-white font-bold py-3 sm:text-xl">
                       Full Stack Web Developer
                     </h2>
                     <Image src="/name.svg" alt="name" width={600} height={600} />
-                    <p className="py-3 lg:pb-7">
+                    <p className="py-3 lg:pb-7 text-white">
                       Building various complex web applications with Next.js,
                       React.js Tailwind, Django, Django Restframework
                     </p>
@@ -32,9 +32,9 @@ export default function Hero() {
                 </div>
 
                 {/* Hero image */}
-                <div className="relative -top-4 min-w-[370px] lg:m-auto 2xlmin:-top-[8rem]">
+                <div className="relative -top-4 min-w-[370px] lg:m-auto 2xlmin:-top-[8rem] smmin:hidden">
                   {/* rounded image */}
-                  <Image src="/guyOnLaptop.svg" height={500} width={500}/>
+                  <Image src="/guyOnLaptop.svg" height={500} width={500} className="smmin:hidden" />
                 </div>
               </div>
             </div>
