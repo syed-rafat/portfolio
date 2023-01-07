@@ -24,16 +24,16 @@ const Navbar = () => {
   }, [previousScroll]);
 
   return (
-    <section className="h-[10vh] font-eurostile">
+    <section className="h-[10vh] font-eurostile text-white">
       <nav
         className={`${isNavVisible ? "bg-mainbg" : "bg-mainbg opacity-0"} ${
           previousScroll < 230 && "bg-opacity-0"
         } ${
           previousScroll > 250 && "shadow-2xl"
-        } pt-[4vh] pl-28 h-[10vh] fixed top-0 z-20 w-full lg:pl-0 lg:p-4 transition duration-500 ease-in-out`}
+        } pt-[4vh] pl-28 h-[10vh] sm:h-20 fixed top-0 z-20 w-full lg:pl-0 lg:p-4 transition duration-500 ease-in-out`}
       >
         <ul className="relative flex flex-nowrap text-xl font-bold items-center mx-auto justify-between">
-          <li className="px-14 lg:px-4">
+          <li className="px-14 lg:px-4 bg-slate-500 bg-opacity-20 rounded-3xl sm:ml-4">
             <Link href="/" className="flex">
               Home
             </Link>
