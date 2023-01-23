@@ -2,6 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import sgMail from '@sendgrid/mail';
 
+const dotenv = require('dotenv').config();
+
 // type Data = {
   // name: string
 // }
@@ -15,7 +17,7 @@ import sgMail from '@sendgrid/mail';
 
 
 
-sgMail.setApiKey("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");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendMail = async (req:NextApiRequest, res:NextApiResponse) => {
   // Extract the form data from the request body
@@ -31,14 +33,14 @@ const sendMail = async (req:NextApiRequest, res:NextApiResponse) => {
     text: `Email: ${email} Message: ${message}`,
   })
   .then((response) => {
-    console.log(response[0].statusCode)
-    console.log(response[0].headers)
+    return res.status(200).json({
+      success: true,
+    });
   })
   .catch((error) => {
     console.error(error)
   })
   // Return a success response to the client
-  res.status(200).send('Success');
 };
 
 export default sendMail;

@@ -54,7 +54,7 @@ export default function Projects({ portfolio }) {
               </div>
             </div>
           </div>
-          <div className="relative w-[40%] p-10 xl:w-[100%]">
+          <div className="relative w-[40%] p-10 xl:w-[100%] 2xlmin:pt-40">
             <p className="text-lg font-thin py-4 font-mona-sans">
               From 2021(November)-Present, i am devoting all my skills to
               develop and maintain this fully scalable oceanography blogging

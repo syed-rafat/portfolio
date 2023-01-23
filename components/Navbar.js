@@ -1,10 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isNavVisible, setNavVis] = useState(true);
   const [previousScroll, setScroll] = useState(0);
+
+  const router = useRouter();
   console.log(previousScroll);
 
   useEffect(() => {
@@ -23,6 +26,16 @@ const Navbar = () => {
     };
   }, [previousScroll]);
 
+  const homeHandler = () => {
+    if (router.query == "/") {
+      window.scrollTo(0, 0);
+    }
+    else {
+      console.log(router.query);
+      router.push("/");
+    }
+  }
+
   return (
     <section className="h-[10vh] font-eurostile text-white">
       <nav
@@ -34,16 +47,16 @@ const Navbar = () => {
       >
         <ul className="relative flex flex-nowrap text-xl font-bold items-center mx-auto justify-between">
           <li className="px-14 lg:px-4 bg-slate-500 bg-opacity-20 rounded-3xl sm:ml-4">
-            <Link href="/" className="flex">
+            <button onClick={homeHandler}>
               Home
-            </Link>
+            </button>
           </li>
           <li className="px-14 lgmin:fixed lgmin:right-[16rem] lgmin:pt-2 lg:px-2">
             <a href="#">Projects</a>
           </li>
           <li className="lgmin:px-14 lgmin:fixed lgmin:right-20 px-2">
             <button className="bg-gradient-to-r from-gradient_from to-gradient_to border-mainbg text-mainbg font-semibold  py-2 px-3 rounded-xl md:mx-auto">
-              <a href="#">Contact</a>
+              <Link href="/contact">Contact</Link>
             </button>
           </li>
         </ul>

@@ -1,6 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import Router from 'next/router';
 
 const ContactForm = () => {
   const initialValues = {
@@ -20,7 +23,6 @@ const ContactForm = () => {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     // Send the form data to your server or a service like Formspree
     console.log(values);
-
     fetch('/api/send-mail', {
       method: 'POST',
       headers: {
@@ -29,9 +31,11 @@ const ContactForm = () => {
       body: JSON.stringify(values)
     })
     .then(res => res.json())
-    .then(res => { 
+    .then(res => {
+      console.log(res) 
       if (res.success) {
-        setFormSuccess(true)
+        toast("Email sent, thank you!")
+        Router.back()
       }})
     .catch(err => console.log(err))
 
@@ -49,6 +53,7 @@ const ContactForm = () => {
       {({ isSubmitting }) => (
         <Form className='flex flex-col w-[45%] mx-auto pt-12 sm:w-[80%] max-w-[26rem] sm:ml-[10vw]'>
           {formSuccess && <p>Your message was sent successfully!</p>}
+          <Toaster />
             <h1 className='text-4xl text-center'>Contact</h1>
             <label className='text-2xl text-text py-8'>Name</label>
           <Field type="text" name="name" placeholder="Name" className="rounded p-2 text-mainbg w-full"/>

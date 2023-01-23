@@ -11,6 +11,10 @@ import About from "../components/About";
 import Footer from "../components/footer";
 import Projects from "../components/Projects";
 
+// TODO: Add react hot toast for contact form submission
+
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 //portfolio page for web developer
@@ -41,8 +45,10 @@ export default function Home({ portfolio }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="text-text">
-        <img
-          src="mountain.png"
+        <Image
+          src="/mountain.png" alt="mountain"
+          width={1920} height={1080}
+          quality={90}
           className="absolute top-0 sm:w-[100vw] w-[100vw] h-[100vh] object-cover overflow-hidden"
         />
         {/* Navbar */}

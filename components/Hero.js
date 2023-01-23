@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="relative h-[90vh] my-auto">
+        <section className="relative h-[90vh] my-auto ">
             <div className="p-16 m-16 mt-0 ml-2 lg:pt-0 sm:p-4 sm:m-0">
               <div className="flex m-auto flex-row flex-nowrap self-center p-16 pt-52 lg:flex-wrap lg:p-0 lg:m-0">
                 
@@ -14,7 +14,7 @@ export default function Hero() {
                     <h2 className="text-3xl text-white font-bold py-3 sm:text-xl">
                       Full Stack Web Developer
                     </h2>
-                    <Image src="/name.svg" alt="name" width={600} height={600} />
+                    <Image src="/name.svg" alt="name" width={550} height={400} loading="eager" className="bg-slate-700 bg-opacity-10" />
                     <p className="py-3 lg:pb-7 text-white">
                       Building various complex web applications with Next.js,
                       React.js Tailwind, Django, Django Restframework
@@ -34,7 +34,7 @@ export default function Hero() {
                 {/* Hero image */}
                 <div className="relative -top-4 min-w-[370px] lg:m-auto 2xlmin:-top-[8rem] smmin:hidden">
                   {/* rounded image */}
-                  <Image src="/guyOnLaptop.svg" height={500} width={500} className="smmin:hidden" />
+                  <Image src="/guyOnLaptop.svg" alt="A guy on laptop" height={500} width={500} className="smmin:hidden" />
                 </div>
               </div>
             </div>
