@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser'
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
-    emailjs.init("YOUR_PUBLIC_KEY") // Initialize with your public key
+    emailjs.init("78tllo3i1Ib11mUxV") // Initialize with your public key
   }, [])
 
   return (

@@ -21,14 +21,14 @@ const ContactForm = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // Get from EmailJS dashboard
-        'YOUR_TEMPLATE_ID', // Get from EmailJS dashboard
+        'service_h99olfl', // Get from EmailJS dashboard
+        'template_cl3vj84', // Get from EmailJS dashboard
         {
           from_name: values.name,
           from_email: values.email,
           message: values.message,
         },
-        'YOUR_PUBLIC_KEY' // Get from EmailJS dashboard
+        '78tllo3i1Ib11mUxV' // Get from EmailJS dashboard
       );
 
       if (result.status === 200) {
