@@ -32,43 +32,39 @@ export function urlFor(source) {
   return builder.image(source);
 }
 
-export default function Home({ portfolio }) {
 
+export default function Home({ portfolio }) {
   return (
-    <div>
+    <>
       <Head>
         <title>Syed Rafat</title>
         <meta
           name="description"
           content="Syed Rafat's Full Stack Web Developer Portfolio"
         />
+        <meta name="keywords" content="web developer, full stack developer, portfolio" />
+        <meta name="author" content="Syed Rafat" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="text-text">
+
+      <main>
         <Image
           src="/mountain.png" alt="mountain"
           width={1920} height={1080}
           quality={90}
           className="absolute top-0 sm:w-[100vw] w-[100vw] h-[100vh] object-cover overflow-hidden"
         />
-        {/* Navbar */}
         <Navbar />
 
-        <div className="relative text-xl font-eurostile">
-          {/* Hero section */}
-
+        <div className="relative text-xl font-eurostile text-text">
           <Hero />
           <About />
-
-          {/* Project section */}
-
           <Projects portfolio={portfolio} />
-          
           <Footer />
         </div>
-      </div>
-    </div>
-  );
+      </main>
+    </>
+  )
 }
 
 export async function getStaticProps() {
